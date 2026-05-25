@@ -1,4 +1,17 @@
+//TASK-M
+function getSquareNumbers(arr: number[]) {
+    return arr.map((num) => {
+        return {
+            number: num,
+            square: num * num,
+        };
+    });
+}
+
+console.log(getSquareNumbers([1, 2, 3]));
+
 //TASK-L
+/*
 function reverseSentence(str: string): string {
     return str
         .split(" ")
@@ -7,3 +20,4 @@ function reverseSentence(str: string): string {
 }
 
 console.log(reverseSentence("we like coding"));
+*/
