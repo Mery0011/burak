@@ -1,5 +1,13 @@
+//TASK-N
+function palindromCheck(word: string): boolean {
+    return word === word.split("").reverse().join("");
+}
+
+console.log(palindromCheck("dad")); // true
+console.log(palindromCheck("son")); // false
+
 //TASK-M
-function getSquareNumbers(arr: number[]) {
+/*function getSquareNumbers(arr: number[]) {
     return arr.map((num) => {
         return {
             number: num,
@@ -9,6 +17,7 @@ function getSquareNumbers(arr: number[]) {
 }
 
 console.log(getSquareNumbers([1, 2, 3]));
+*/
 
 //TASK-L
 /*
