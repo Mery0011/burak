@@ -1,10 +1,22 @@
+/* Project Standards:
+-Logging standards
+-Naming standards:
+    function,method,variables => CAMEL goHome
+    class => PASCAL                    MemberService
+    folder => KEBAB
+    CSS=> SNAKE                        button_style
+- Error handling
+*/
+
+
 //TASK-N
-function palindromCheck(word: string): boolean {
+/*function palindromCheck(word: string): boolean {
     return word === word.split("").reverse().join("");
 }
 
 console.log(palindromCheck("dad")); // true
 console.log(palindromCheck("son")); // false
+*/
 
 //TASK-M
 /*function getSquareNumbers(arr: number[]) {
