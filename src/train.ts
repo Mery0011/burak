@@ -7,7 +7,16 @@
     CSS=> SNAKE                        button_style
 - Error handling
 */
+/**TYPES OF API:
+ Traditional API
+ Rest API
+ GraphQL API
+ ...
 
+ METHODS OF API:
+ post
+ get
+ */
 
 //TASK-N
 /*function palindromCheck(word: string): boolean {
