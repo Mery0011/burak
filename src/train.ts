@@ -1,3 +1,17 @@
+//TASK-O
+function calculateSumOfNumbers(arr: any[]): number {
+    return arr.reduce((sum, item) => {
+        if (typeof item === "number") {
+            return sum + item;
+        }
+        return sum;
+    }, 0);
+}
+
+console.log(
+    calculateSumOfNumbers([10, "10", { son: 10 }, true, 35])
+); // 45
+
 /* Project Standards:
 -Logging standards
 -Naming standards:
