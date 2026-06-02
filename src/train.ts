@@ -1,5 +1,19 @@
+//TASK-P
+function objectToArray(obj: any) {
+    let result = [];
+
+    for (let key in obj) {
+        result.push([key, obj[key]]);
+    }
+
+    return result;
+}
+
+console.log(objectToArray({ a: 10, b: 20 }));
+
+
 //TASK-O
-function calculateSumOfNumbers(arr: any[]): number {
+/*function calculateSumOfNumbers(arr: any[]): number {
     return arr.reduce((sum, item) => {
         if (typeof item === "number") {
             return sum + item;
@@ -11,6 +25,8 @@ function calculateSumOfNumbers(arr: any[]): number {
 console.log(
     calculateSumOfNumbers([10, "10", { son: 10 }, true, 35])
 ); // 45
+*/
+
 
 /* Project Standards:
 -Logging standards
