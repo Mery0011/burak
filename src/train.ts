@@ -1,5 +1,12 @@
+/**
+ Traditional Frontend Development =>BSSR [Backend Server-Side Rendering] (Adminka)=> EJS framework
+ Modern Frontend Development =>SPA[Single Page Application] (Users app) => REACT
+ */
+
+
+
 //TASK-P
-function objectToArray(obj: any) {
+/*function objectToArray(obj: any) {
     let result = [];
 
     for (let key in obj) {
@@ -11,7 +18,7 @@ function objectToArray(obj: any) {
 
 console.log(objectToArray({ a: 10, b: 20 }));
 
-
+*/
 //TASK-O
 /*function calculateSumOfNumbers(arr: any[]): number {
     return arr.reduce((sum, item) => {
