@@ -3,8 +3,8 @@ function hasProperty(obj: object, key: string): boolean {
     return key in obj;
 }
 
-console.log(hasProperty({ name: "BMW", model: "M5" }, "model")); // true
-console.log(hasProperty({ name: "BMW", model: "M5" }, "year")); // false
+console.log(hasProperty({ name: "BMW", model: "M5" }, "model"));
+console.log(hasProperty({ name: "BMW", model: "M5" }, "year"));
 
 /**
  Traditional Frontend Development =>BSSR [Backend Server-Side Rendering] (Adminka)=> EJS framework
