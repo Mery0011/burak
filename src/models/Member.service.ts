@@ -1,6 +1,6 @@
 import MemberModel from "../schema/Member.model";
 import { MemberInput, Member } from "../libs/types/member";
-import Errors, { HttpCode, Message } from "../libs/errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 import { MemberType } from "../libs/enums/member.enum";
 import { LoginInput } from "../libs/types/member";
 import * as bcrypt from "bcryptjs"
