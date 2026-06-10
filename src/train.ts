@@ -1,11 +1,19 @@
+/**VALIDATION:
+ 1.Frontend validation
+ 2. Backend validation
+ 3. Database validation
+ 4. (Pipe validation)
+ */
+
 //TASK-R
-function hisobla(str: string): number {
+/*function hisobla(str: string): number {
     const [a, b] = str.split("+");
 
     return Number(a) + Number(b);
 }
 
 console.log(hisobla("2+6"));
+*/
 
 /**COOKIE'S CHARACTER:
  1. Request join
