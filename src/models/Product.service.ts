@@ -4,6 +4,7 @@ import { Product, ProductInput, ProductUpdateInput } from "../libs/types/product
 import ProductModel from "../schema/Product.model";
 
 class ProductService {
+    [x: string]: any;
     private readonly productModel;
 
     constructor() {
@@ -13,6 +14,13 @@ class ProductService {
     /** SPA */
 
     /** SSR */
+
+    public async getAllProducts(): Promise<Product[]> {
+        const result = await this.productModel.find().exec();
+        if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+        return result;
+    }
 
     public async createNewProduct(input: ProductInput): Promise<Product> {
         try {
