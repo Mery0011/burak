@@ -1,5 +1,12 @@
+//TASK-T
+function tartibla(arr1: number[], arr2: number[]): number[] {
+    return [...arr1, ...arr2].sort((a, b) => a - b);
+}
+
+console.log(tartibla([0, 3, 4, 31], [4, 6, 30]));
+
 //TASK-S
-function topib_ber(nums: number[]): number {
+/*function topib_ber(nums: number[]): number {
     const n = nums.length;
     for (let i = 0; i <= n; i++) {
         if (!nums.includes(i)) {
@@ -9,7 +16,7 @@ function topib_ber(nums: number[]): number {
     return -1;
 }
 console.log(topib_ber([0, 2, 3]));
-
+*/
 /**VALIDATION:
  1.Frontend validation
  2. Backend validation
