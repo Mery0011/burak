@@ -1,10 +1,24 @@
+//TASK-U
+function sumOdds(num: number): number {
+    let count = 0;
+
+    for (let i = 1; i < num; i += 2) {
+        count++;
+    }
+
+    return count;
+}
+
+console.log(sumOdds(9));
+console.log(sumOdds(11));
+
 //TASK-T
-function tartibla(arr1: number[], arr2: number[]): number[] {
+/*function tartibla(arr1: number[], arr2: number[]): number[] {
     return [...arr1, ...arr2].sort((a, b) => a - b);
 }
 
 console.log(tartibla([0, 3, 4, 31], [4, 6, 30]));
-
+*/
 //TASK-S
 /*function topib_ber(nums: number[]): number {
     const n = nums.length;
