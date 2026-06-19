@@ -43,6 +43,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 restaurantController.processSignup = async (req: AdminRequest, res: Response) => {
     try {
         console.log("processSignup");
+        console.log("req.body:", req.body);
         const file = req.file;
         // console.log("file:", file);
         // throw new Error("Forced Quit");
