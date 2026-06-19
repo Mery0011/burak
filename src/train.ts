@@ -1,5 +1,25 @@
+//TASK-V
+function countChars(str: string) {
+    let result: any = {};
+
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+
+        if (result[char] === undefined) {
+            result[char] = 1;
+        } else {
+            result[char] = result[char] + 1;
+        }
+    }
+
+    return result;
+}
+
+console.log(countChars("hello"));
+
+
 //TASK-U
-function sumOdds(num: number): number {
+/*function sumOdds(num: number): number {
     let count = 0;
 
     for (let i = 1; i < num; i += 2) {
@@ -11,7 +31,7 @@ function sumOdds(num: number): number {
 
 console.log(sumOdds(9));
 console.log(sumOdds(11));
-
+*/
 //TASK-T
 /*function tartibla(arr1: number[], arr2: number[]): number[] {
     return [...arr1, ...arr2].sort((a, b) => a - b);
