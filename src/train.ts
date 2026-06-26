@@ -1,6 +1,24 @@
+//TASK-X
+function countOccurrences(obj: any, key: string): number {
+    return Object.keys(obj).reduce((sum, k) => {
+        const val = obj[k];
+        return sum + (k === key ? 1 : 0) + (val && typeof val === "object" ? countOccurrences(val, key) : 0);
+    }, 0);
+}
+
+const data = {
+    model: "Bugatti",
+    steer: {
+        model: "HANKOOK",
+        size: 30,
+    },
+};
+
+console.log(countOccurrences(data, "model"));
+
 //TASK-W
 
-function chunkArray(arr: number[], size: number): number[][] {
+/*function chunkArray(arr: number[], size: number): number[][] {
     const result: number[][] = [];
 
     for (let i = 0; i < arr.length; i += size) {
@@ -11,7 +29,7 @@ function chunkArray(arr: number[], size: number): number[][] {
 }
 
 console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
-
+*/
 //TASK-V
 /*function countChars(str: string) {
     let result: any = {};
