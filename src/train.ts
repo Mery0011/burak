@@ -1,5 +1,20 @@
+//TASK-Y
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+    let result: number[] = [];
+
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr2.includes(arr1[i])) {
+            result.push(arr1[i]);
+        }
+    }
+
+    return result;
+}
+
+console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+
 //TASK-X
-function countOccurrences(obj: any, key: string): number {
+/*function countOccurrences(obj: any, key: string): number {
     return Object.keys(obj).reduce((sum, k) => {
         const val = obj[k];
         return sum + (k === key ? 1 : 0) + (val && typeof val === "object" ? countOccurrences(val, key) : 0);
@@ -15,6 +30,7 @@ const data = {
 };
 
 console.log(countOccurrences(data, "model"));
+*/
 
 //TASK-W
 
