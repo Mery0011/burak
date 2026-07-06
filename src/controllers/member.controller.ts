@@ -2,11 +2,14 @@ import { Request, Response } from "express";
 import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
-import Errors from "../libs/Errors";
+import Errors from "../libs/errors";
+import AuthService from "../models/Auth.service";
 
 //REACT
 const memberController: T = {};
 const memberService = new MemberService();
+const authService = new AuthService();
+
 /*memberController.goHome = (req: Request, res: Response) => {
     try {
         res.send("Home Page");
@@ -35,8 +38,10 @@ memberController.signup = async (req: Request, res: Response) => {
     try {
         console.log("signup");
         const input: MemberInput = req.body,
-            result: Member = await memberService.signup(input);
-        //TODO: TOKEN AUTHENTICATION
+            result: Member = await memberService.signup(input),
+            token = await authService.createToken(result);
+        console.log("token:", token);
+
         res.json({ member: result });
     } catch (err) {
         console.log("Error, signup:", err);
@@ -49,8 +54,13 @@ memberController.login = async (req: Request, res: Response) => {
     try {
         console.log("login");
         const input: LoginInput = req.body,
-            result = await memberService.login(input);
+            result = await memberService.login(input),
+            token = await authService.createToken(result);
+        console.log("token=>", token);
+
+
         //TODO: TOKEN AUTHENTICATION
+        console.log("result:", result);
         res.json({ member: result });
     } catch (err) {
         console.log("Error, login:", err);
