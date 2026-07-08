@@ -20,10 +20,12 @@ const store = new MongoDBStore({
 const app = express();
 //console.log("__dirname", __dirname);
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/uploads", express.static("./uploads"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT));
+
 
 /** 2-SESSIONS **/
 app.use(

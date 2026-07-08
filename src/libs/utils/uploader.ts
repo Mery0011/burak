@@ -8,24 +8,20 @@ function getTargetImageStorage(address: any) {
         destination: function (req, file, cb) {
             cb(null, `./uploads/${address}`);
         },
-
         filename: function (req, file, cb) {
+
             const extension = path.parse(file.originalname).ext;
             const random_name = v4() + extension;
             cb(null, random_name);
         },
     });
 }
+
 const makeUploader = (address: string) => {
     const storage = getTargetImageStorage(address);
-    return multer({
-        storage: storage,
-    });
+    return multer({ storage: storage });
 };
-
 export default makeUploader;
-
-
 /*const product_storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, "./uploads/products");
