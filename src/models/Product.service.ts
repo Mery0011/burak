@@ -1,16 +1,21 @@
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import { ProductStatus } from "../libs/enums/product.enum";
+import { ViewGroup } from "../libs/enums/view.enum";
 import Errors, { HttpCode, Message } from "../libs/errors";
 import { T } from "../libs/types/common";
 import { Product, ProductInput, ProductInquiry, ProductUpdateInput } from "../libs/types/product";
+import { ViewInput } from "../libs/types/view";
 import ProductModel from "../schema/Product.model";
+import ViewService from "./View.service";
+import { ObjectId } from "mongoose";
 
 class ProductService {
-    [x: string]: any;
     private readonly productModel;
+    public viewService;
 
     constructor() {
         this.productModel = ProductModel;
+        this.viewService = new ViewService()
     }
 
     /** SPA */
@@ -42,7 +47,7 @@ class ProductService {
     }
 
     public async getProduct(
-        memberId: Object | null,
+        memberId: ObjectId | null,
         id: string
     ): Promise<Product> {
         const productId = shapeIntoMongooseObjectId(id);
@@ -57,8 +62,32 @@ class ProductService {
 
         // TODO: If authenticated users => first => view log creation
 
+        if (memberId) {
+            //Check View log existence 
+            const input: ViewInput = {
+                memberId,
+                viewRefId: productId,
+                viewGroup: ViewGroup.PRODUCT,
+            };
+            const existView = await this.viewService.checkViewExistence(input);
+            console.log("exist:", !!existView);
+            if (!existView) {
+                //insert new view log 
+                console.log("PLANNING TO INSERT NEW VIEW");
+                await this.viewService.insertMemberView(input);
+
+                //increase counts
+                result = await this.productModel
+                    .findByIdAndUpdate(
+                        productId,
+                        { $inc: { productViews: +1 } },
+                        { new: true })
+                    .exec();
+            }
+        }
         return result;
     }
+
     /** SSR */
 
     public async getAllProducts(): Promise<Product[]> {
